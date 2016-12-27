@@ -1,0 +1,58 @@
+import webapp2
+import cgi
+
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers["Content-Type"] = "text/html"
+        self.response.write("""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Python Webapp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter your name</h2>
+              <form action="/welcome" method="post">
+
+                <input type="text" name="my_name"><br>
+                <input type="submit" class="btn btn-success" value="Sign In">
+              </form>
+</div>
+            </body>
+            </html>""")
+
+
+class Greeting(webapp2.RequestHandler):
+    def post(self):
+        
+        username = cgi.escape(self.request.get("my_name"))
+
+        welcome_string = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Python Webapp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+                    <h1>      Hi there, {}! </h1>
+</div>
+                          </body></html>""".format(username)
+        self.response.headers["Content-Type"] = "text/html"
+        self.response.write(welcome_string)
+
+
+routes = [('/', MainPage), ('/welcome', Greeting)]
+my_app = webapp2.WSGIApplication(routes, debug=True)
