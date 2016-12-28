@@ -49,22 +49,30 @@ class MainPage(webapp2.RequestHandler):
 <body>
 
 
-<div class="container" style="padding-left:180px;">
+<div class="container" style="display: table;
+  margin: auto;">
+
 <div class="text-vertical-center">
 
-<div class="jumbotron" style=" ;">
-
-<h1>Jumble Words Solver!</h1>
+<div class="jumbotron" style=" border:solid black 10px;">
+<a style=" font-size:15px;background:white; color:black;" href="https://github.com/indrajithi/Jumble-words-Solver-using-webapp2" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-link"></span> Fork on Github 
+        </a>
+<h1>Jumble Words Solver!</h1><br>
               <form action="/" method="get" >
                  <input type="text" name="wordIn" maxlength=20; style=" padding: 12px 20px;margin: 8px 0;box-sizing: border-box;font-size: 20px" value={}><br>
                 <input type="submit" class="btn btn-success" style="padding: 10px 125px;font-size: 20px  ;" value="Find""><br>
                <h3 id="tst">{} Words Found: {}</h3>
               </form>
 <div id="out"></div>
+
 </div>
 </div>
+
+
 </div>
 <script src="/jsFile.js"></script>
+
             </body>
           </html>""".format(queryString,total, outWords))
 
