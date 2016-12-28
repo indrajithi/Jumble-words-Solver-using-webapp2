@@ -18,6 +18,7 @@ def is_anargam(word1, word2):
 
 def anargamFind(wd_in):
     file = open('words.txt')
+    wd_in=wd_in.lower();
     tmpString = ""
     found = 0
     for line in file:
@@ -28,6 +29,7 @@ def anargamFind(wd_in):
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+        queryString = -1
         queryString = cgi.escape(self.request.get("wordIn"))
 
         outWords,total = anargamFind(queryString)
@@ -36,29 +38,35 @@ class MainPage(webapp2.RequestHandler):
           <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Python Webapp</title>
+  <title>Jumble Words Solver</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/my.css">
 </head>
 <body>
-<script>
-var found = {};
 
-   // alert("success");
 
-</script>
-<div class="container">
-              <form action="/" method="get">
-                 <input type="text" name="wordIn" value={}><br>
-                <input type="submit" class="btn btn-success"value="Find"><br>
-               <h3>{} Words Found: {}</h3>
+<div class="container" style="padding-left:180px;">
+<div class="text-vertical-center">
+
+<div class="jumbotron" style=" ;">
+
+<h1>Jumble Words Solver!</h1>
+              <form action="/" method="get" >
+                 <input type="text" name="wordIn" maxlength=20; style=" padding: 12px 20px;margin: 8px 0;box-sizing: border-box;font-size: 20px" value={}><br>
+                <input type="submit" class="btn btn-success" style="padding: 10px 125px;font-size: 20px  ;" value="Find""><br>
+               <h3 id="tst">{} Words Found: {}</h3>
               </form>
+<div id="out"></div>
 </div>
+</div>
+</div>
+<script src="/jsFile.js"></script>
             </body>
-          </html>""".format(total,queryString,total, outWords))
+          </html>""".format(queryString,total, outWords))
 
 routes = [('/', MainPage)]
 
