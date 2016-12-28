@@ -14,8 +14,9 @@ document.getElementById("tst").innerHTML="<div class=\"alert alert-danger\">No w
   // document.getElementById("tst").innerHTML="";
   
 }
-
-if (wordIn=="" || wordIn==null){
+if (total == "-")
+    document.getElementById("tst").innerHTML="<div class=\"alert alert-danger\">Invalid Srting!</div>";
+if (wordIn =="" || wordIn==null){
     document.getElementById("tst").innerHTML="<div class=\"alert alert-info\">Enter a String!</div>";
    
 }

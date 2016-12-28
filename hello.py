@@ -31,8 +31,10 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         queryString = -1
         queryString = cgi.escape(self.request.get("wordIn"))
-
-        outWords,total = anargamFind(queryString)
+        if(queryString.isalpha()):
+          outWords,total = anargamFind(queryString)
+        else:
+          outWords,total=(-1,-1)
         self.response.headers["Content-Type"] = "text/html"
         self.response.write("""
           <!DOCTYPE html>
