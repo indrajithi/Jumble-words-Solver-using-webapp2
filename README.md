@@ -1,8 +1,8 @@
 #Jumble words solver using Python and webapp2
 ![Anargam](/img.png "Screenshot") 
 
-##[Live Demo](https://anargampy.appspot.com)
-##[Doc](http://indrajith.me/jumble_words_solver_in_python/)
+###[Live Demo](https://anargampy.appspot.com)
+###[Doc](http://indrajith.me/jumble_words_solver_in_python/)
 
 ###is_anargam:
 ```python
