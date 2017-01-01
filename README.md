@@ -20,7 +20,7 @@ def is_anargam(word1, word2):
     return False
 
 ```
-###anargam_find:
+###anargamFind:
 ```python
 def anargamFind(wd_in):
     file = open('words.txt')              #open dictionary 
