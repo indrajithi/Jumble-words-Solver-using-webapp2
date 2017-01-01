@@ -34,7 +34,7 @@ def anargamFind(wd_in):
     return tmpString, found
 
 ```
-###run locally
+###Run locally
 Requrements: Python 2.7.10, google-cloud-sdk 
 `git clone https://github.com/indrajithi/Jumble-words-Solver-using-webapp2`
 `cd Jumble-words-Solver-using-webapp2/`
