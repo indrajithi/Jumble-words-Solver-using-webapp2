@@ -36,7 +36,9 @@ def anargamFind(wd_in):
 ```
 ###Run locally
 Requrements: Python 2.7.10, google-cloud-sdk 
+
 `git clone https://github.com/indrajithi/Jumble-words-Solver-using-webapp2`
 `cd Jumble-words-Solver-using-webapp2/`
 `dev_appserver .`
+
 If everything goes smooth the server will be up and running at `http://localhost:8080/`
