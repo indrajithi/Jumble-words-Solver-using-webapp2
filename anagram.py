@@ -35,3 +35,13 @@ if found == 0:
      print "No possible mathch"
 else:
      print "Found %d match." % found
+
+def chk(n):
+  count =0
+  file=open('words.txt')
+  for line in file:
+    if len(line.strip()) == n:
+      count+=1
+  return count
+
+
