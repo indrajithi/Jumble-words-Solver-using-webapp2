@@ -2,29 +2,32 @@ import webapp2
 import cgi
 
 
-def is_anargam(word1, word2):
-    """Returns True if anargam is found. Else return False."""
+def is_anagram(word1, word2):
+    """Returns True if anagram is found. Else return False."""
     count = 0
     word1, word2 = list(word1), list(word2)  #get a list of charectors in the words
-    if len(word1) == len(word2):             #match the dictionary word only if same length
-          for i in word1:                    #removes a letter from the word and increase count
-                   if i in word2:
+    
+    for i in word1:                    #removes a letter from the word and increase count
+        if i in word2:
                     word2.remove(i)
                     count += 1
-          if count == len(word1):           #if count == lenght then its a match
+        if count == len(word1):           #if count == lenght then its a match
                return True
     return False
 
 
 def anargamFind(wd_in):
     file = open('words.txt')              #open dictionary 
-    wd_in=wd_in.lower();                  #make input string to lower case
+    wd_in=wd_in.lower()                   #make input string to lower case
+    wd_len=len(wd_in)
     tmpString = ""                        #string of matched words
     found = 0
-    for line in file:                     #loop through the dictionay
-     if is_anargam(wd_in,line.strip()):
-        found += 1
-        tmpString += line.strip() + ", " 
+
+    for line in file: 
+     if(len(line.strip()) == wd_len ):                    #loop through the dictionay
+        if is_anagram(wd_in,line.strip()):
+            found += 1
+            tmpString += line.strip() + ", " 
     return tmpString, found
 
 class MainPage(webapp2.RequestHandler):
