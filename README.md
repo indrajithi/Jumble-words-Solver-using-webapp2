@@ -4,10 +4,10 @@
 ###[Live Demo](https://anargampy.appspot.com)
 ###[Doc](http://indrajith.me/jumble_words_solver_in_python/)
 
-###is_anargam:
+###is_anagram:
 ```python
-def is_anargam(word1, word2):
-    """Returns True if anargam is found. Else return False."""
+def is_anagram(word1, word2):
+    """Returns True if anagram is found. Else return False."""
     count = 0
     word1, word2 = list(word1), list(word2)  #get a list of charectors in the words
     if len(word1) == len(word2):             #match the dictionary word only if same length
@@ -20,15 +20,15 @@ def is_anargam(word1, word2):
     return False
 
 ```
-###anargamFind:
+###anagramFind:
 ```python
-def anargamFind(wd_in):
+def anagramFind(wd_in):
     file = open('words.txt')              #open dictionary 
     wd_in=wd_in.lower();                  #make input string to lower case
     tmpString = ""                        #string of matched words
     found = 0
     for line in file:                     #loop through the dictionay
-     if is_anargam(wd_in,line.strip()):
+     if is_anagram(wd_in,line.strip()):
         found += 1
         tmpString += line.strip() + ", " 
     return tmpString, found
