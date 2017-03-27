@@ -1,10 +1,10 @@
-#Jumble words solver using Python and webapp2
+# Jumble words solver using Python and webapp2
 ![Anargam](/img.png "Screenshot") 
 
-###[Live Demo](https://anargampy.appspot.com)
-###[Doc](http://indrajith.me/jumble_words_solver_in_python/)
+### [Live Demo](https://anargampy.appspot.com)
+### [Doc](http://indrajith.me/jumble_words_solver_in_python/)
 
-###is_anagram:
+### is_anagram:
 ```python
 def is_anagram(word1, word2):
     """Returns True if anagram is found. Else return False."""
@@ -20,7 +20,7 @@ def is_anagram(word1, word2):
     return False
 
 ```
-###anagramFind:
+### anagramFind:
 ```python
 def anagramFind(wd_in):
     file = open('words.txt')              #open dictionary 
@@ -34,7 +34,7 @@ def anagramFind(wd_in):
     return tmpString, found
 
 ```
-###Run locally
+### Run locally
 Requrements: Python 2.7.10, google-cloud-sdk 
 
 `git clone https://github.com/indrajithi/Jumble-words-Solver-using-webapp2`
